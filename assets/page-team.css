@@ -3,10 +3,8 @@
 }
 
 .team-page .hero-wrap {
-  background:
-    linear-gradient(to right, rgba(200, 191, 168, 0.9) 0%, rgba(200, 191, 168, 0.74) 42%, rgba(200, 191, 168, 0.2) 100%),
-    url("https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2000&q=80&sat=35") center / cover no-repeat;
-  min-height: 320px;
+  background: linear-gradient(to right, rgba(238, 233, 221, 0.26) 0%, rgba(238, 233, 221, 0.16) 42%, rgba(238, 233, 221, 0.05) 100%);
+  min-height: 250px;
   position: relative;
   align-items: flex-start;
   --hero-inline: max(12px, calc((100% - min(1140px, 92%)) / 2 + 8px));
@@ -25,7 +23,7 @@
 
 .team-page h1 {
   font-family: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  margin-left: -72px;
+  margin-left: -190px;
 }
 
 .team-page .hero-bar-heading {
@@ -101,7 +99,7 @@
 .team-page .hero {
   position: relative;
   z-index: 3;
-  padding-top: 168px;
+  padding-top: 128px;
 }
 
 .team-page .hero-anniversary-icon {
@@ -142,6 +140,11 @@
   border: 0;
   box-shadow: none;
   padding: 16px;
+  transition: none;
+}
+
+.team-card-clinical:hover {
+  box-shadow: none;
 }
 
 .team-card-clinical h2 {
@@ -149,9 +152,11 @@
 }
 
 .team-card-clinical[data-reveal] {
-  opacity: 1;
-  transform: none;
-  transition: none;
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 0.72s var(--ease-out),
+    transform 0.72s var(--ease-out);
 }
 
 .clinical-staff-list {
@@ -159,38 +164,70 @@
 }
 
 .clinical-staff-list .member-row {
-  transition: none;
+  transition:
+    opacity 0.72s var(--ease-out),
+    transform 0.72s var(--ease-out),
+    box-shadow 0.38s var(--ease-out),
+    border-color 0.38s var(--ease-out);
 }
 
 body.intro-ready .clinical-staff-list .member-row:not(.is-visible),
 body.intro-ready .clinical-staff-list .member-row.left:not(.is-visible),
-body.intro-ready .clinical-staff-list .member-row.right:not(.is-visible),
+body.intro-ready .clinical-staff-list .member-row.right:not(.is-visible) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.intro-ready .clinical-staff-list .member-row.left:not(.is-visible) {
+  transform: translate3d(-40px, 26px, 0);
+}
+
+body.intro-ready .clinical-staff-list .member-row.right:not(.is-visible) {
+  transform: translate3d(40px, 26px, 0);
+}
+
 body.intro-ready .clinical-staff-list .member-row.is-visible {
   opacity: 1;
-  transform: none;
+  transform: translate3d(0, 0, 0);
   pointer-events: auto;
 }
 
 .clinical-staff-list .member-row.is-visible:hover {
-  transform: none;
+  transform: translateY(-8px);
   box-shadow: var(--shadow-sm);
   border-color: var(--line);
 }
 
 .clinical-staff-list .member-row.is-visible:hover::before {
-  opacity: 0;
+  opacity: 1;
 }
 
 .lab-staff-list .member-row {
-  transition: none;
+  transition:
+    opacity 0.72s var(--ease-out),
+    transform 0.72s var(--ease-out),
+    box-shadow 0.38s var(--ease-out),
+    border-color 0.38s var(--ease-out);
 }
 
 body.intro-ready .lab-staff-list .member-row:not(.is-visible),
 body.intro-ready .lab-staff-list .member-row.left:not(.is-visible),
-body.intro-ready .lab-staff-list .member-row.right:not(.is-visible),
+body.intro-ready .lab-staff-list .member-row.right:not(.is-visible) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.intro-ready .lab-staff-list .member-row.left:not(.is-visible) {
+  transform: translate3d(-40px, 26px, 0);
+}
+
+body.intro-ready .lab-staff-list .member-row.right:not(.is-visible) {
+  transform: translate3d(40px, 26px, 0);
+}
+
 body.intro-ready .lab-staff-list .member-row.is-visible {
   opacity: 1;
-  transform: none;
+  transform: translate3d(0, 0, 0);
   pointer-events: auto;
 }
 
@@ -202,12 +239,19 @@ body.intro-ready .lab-staff-list .member-row.is-visible {
   background: var(--bg);
   border: 0;
   box-shadow: none;
+  transition: none;
+}
+
+.team-card-lab:hover {
+  box-shadow: none;
 }
 
 .team-card-lab[data-reveal] {
-  opacity: 1;
-  transform: none;
-  transition: none;
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 0.72s var(--ease-out),
+    transform 0.72s var(--ease-out);
 }
 
 .staff-list {
@@ -355,6 +399,17 @@ body.intro-ready .member-row.is-visible {
 }
 
 @media (max-width: 900px) {
+  .team-page .hero-bar-heading {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .team-page h1 {
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
   .team-page .hero-wrap {
     min-height: 380px;
   }

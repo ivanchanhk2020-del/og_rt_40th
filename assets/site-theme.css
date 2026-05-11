@@ -308,6 +308,18 @@ body.anim-ready [data-reveal="right"].is-visible {
   transform: translate3d(0, 0, 0);
 }
 
+@media (max-width: 900px) {
+  .hero-bar-heading {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-bar-heading h1 {
+    text-align: center;
+    width: 100%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

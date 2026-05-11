@@ -3,11 +3,8 @@
 }
 
 .services-page .hero-wrap {
-  background:
-    linear-gradient(to right, rgba(200, 191, 168, 0.9) 0%, rgba(200, 191, 168, 0.74) 42%, rgba(200, 191, 168, 0.2) 100%),
-    url("https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2000&q=80&sat=35") center / cover no-repeat;
-  min-height: 320px;
-  height: 320px;
+  background: var(--page-bg);
+  min-height: 250px;
   position: relative;
   align-items: flex-start;
   --hero-inline: max(12px, calc((100% - min(1140px, 92%)) / 2 + 8px));
@@ -26,7 +23,7 @@
 
 .services-page h1 {
   font-family: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  margin-left: -72px;
+  margin-left: clamp(-160px, -11vw, -32px);
 }
 
 .services-page .hero-logos-panel {
@@ -96,7 +93,7 @@
 .services-page .hero {
   position: relative;
   z-index: 3;
-  padding-top: 165px;
+  padding-top: 128px;
 }
 
 .services-page .hero-anniversary-icon {
@@ -449,6 +446,17 @@
 }
 
 @media (max-width: 900px) {
+  .services-page .hero-bar-heading {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .services-page h1 {
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
   .services-page .hero-wrap {
     min-height: 380px;
   }

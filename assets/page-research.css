@@ -1,11 +1,8 @@
 /* Research grid + photos ??Wix-style staggered reveal (no 3D spin) */
 
 .research-page .hero-wrap {
-  background:
-    linear-gradient(to right, rgba(200, 191, 168, 0.9) 0%, rgba(200, 191, 168, 0.74) 42%, rgba(200, 191, 168, 0.2) 100%),
-    url("https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2000&q=80&sat=35") center / cover no-repeat;
-  min-height: 320px;
-  height: 320px;
+  background: var(--page-bg);
+  min-height: 250px;
   position: relative;
   align-items: flex-start;
   --hero-inline: max(12px, calc((100% - min(1140px, 92%)) / 2 + 8px));
@@ -35,7 +32,7 @@
 .research-page .hero {
   position: relative;
   z-index: 3;
-  padding-top: 165px;
+  padding-top: 128px;
 }
 
 .research-page .hero-logos-panel {
@@ -651,7 +648,7 @@ body.intro-ready .box.is-visible {
   border-color: rgba(255, 255, 255, 0.16);
   background:
     linear-gradient(to right, rgba(19, 30, 45, 0.76), rgba(19, 30, 45, 0.48)),
-    url("../last_research.png") center / cover no-repeat;
+    url("../photo/last_research.png") center / cover no-repeat;
 }
 
 .germ-cell-box h2,
@@ -678,6 +675,17 @@ body.intro-ready .box.is-visible {
 }
 
 @media (max-width: 900px) {
+  .research-page .hero-bar-heading {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .research-page h1 {
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
   .research-page .hero-wrap {
     min-height: 380px;
   }
