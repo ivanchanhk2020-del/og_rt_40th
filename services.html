@@ -76,7 +76,7 @@
       <section class="panel contact-panel" data-reveal data-reveal-index="2">
         <h2>Contact Us</h2>
         <p class="form-submit-feedback" id="contact-form-feedback" hidden role="status" aria-live="polite"></p>
-        <form class="contact-form" action="mailto:test@test.hk" method="post" enctype="text/plain">
+        <form class="contact-form" action="#" method="post">
           <div class="form-grid">
             <label class="form-field">
               <span>Full Name</span>
@@ -120,7 +120,8 @@
       var form = document.querySelector(".contact-form");
       var feedback = document.getElementById("contact-form-feedback");
       if (!form || !feedback) return;
-      form.addEventListener("submit", function () {
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
         feedback.textContent = "Your form has been submitted";
         feedback.hidden = false;
         feedback.scrollIntoView({ behavior: "smooth", block: "nearest" });
