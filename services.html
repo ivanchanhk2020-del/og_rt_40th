@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical Services</title>
+  <link rel="stylesheet" href="assets/site-theme.css">
+  <link rel="stylesheet" href="assets/page-services.css">
+</head>
+<body class="services-page">
+  <script>document.body.classList.add("intro-ready", "anim-ready");</script>
+  <div class="top-strip">
+    <div class="container">
+      <span>24 Hours Service</span>
+      <span>Online Appointment and Emergency Support</span>
+    </div>
+  </div>
+  <nav>
+    <div class="container nav-inner">
+      <div class="brand"></div>
+      <div class="menu">
+        <a href="home.html">Home</a>
+        <a href="team.html">Our Team</a>
+        <a href="research.html">Research</a>
+        <a href="services.html">Services</a>
+      </div>
+    </div>
+  </nav>
+  <section class="hero-wrap">
+    <div class="container hero">
+      <div class="hero-bar-heading">
+        <h1>Clinical Services</h1>
+      </div>
+    </div>
+    <div class="hero-logos-panel">
+      <span class="hero-dept-logo-wrap">
+        <img class="hero-dept-logo" src="assets/hku-og-dept-logo.png" width="320" height="72" alt="The University of Hong Kong — Department of Obstetrics &amp; Gynaecology (香港大學婦產科學系)" loading="eager">
+      </span>
+      <img class="hero-anniversary-icon" src="assets/40th-anniversary-logo-transparent.png" width="220" height="140" alt="O&amp;G Reproductive Team, May 2026, 40th anniversary" loading="eager">
+    </div>
+  </section>
+  <main class="main">
+    <div class="container">
+      <section class="panel services-overview" data-reveal data-reveal-index="0">
+        <div class="overview-copy">
+          <h2>Overview</h2>
+          <p>The Reproductive Medicine Division provides clinical management for patients with subfertility, menstrual &amp; reproductive endocrine disorders, and menopause-related problems.</p>
+        </div>
+        <figure class="overview-photo">
+          <img src="https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?auto=format&fit=crop&w=1200&q=80" alt="Clinical services in reproductive medicine consultation">
+        </figure>
+      </section>
+
+      <section class="clinics-panel" data-reveal data-reveal-index="1">
+        <h2>Key Clinics</h2>
+        <div class="clinics-grid">
+          <article class="clinic-card">
+            <h3>Subfertility Clinic</h3>
+            <p>Patients who are unable to conceive due to various reasons and those suffering from recurrent miscarriage will be seen at the Subfertility clinic.</p>
+          </article>
+          <article class="clinic-card">
+            <h3>Assisted Reproduction</h3>
+            <p>Our Division runs the HKU-QMH Centre of Assisted Reproduction and Embryology (HKU-QMH CARE). We provide intrauterine insemination (with or without ovarian stimulation) and in vitro fertilization treatment.</p>
+          </article>
+          <article class="clinic-card">
+            <h3>Reproductive Endocrine Clinic</h3>
+            <p>Patients with menstrual irregularities, endocrine disorders and developmental abnormalities of the genital tract are managed at the Reproductive Endocrine Clinic.</p>
+          </article>
+          <article class="clinic-card">
+            <h3>Menopause Clinic</h3>
+            <p>Patients with problems related to premature / surgical / natural menopause requiring counselling and / or treatment are seen at the Menopause Clinic.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel contact-panel" data-reveal data-reveal-index="2">
+        <h2>Contact Us</h2>
+        <p class="form-submit-feedback" id="contact-form-feedback" hidden role="status" aria-live="polite"></p>
+        <form class="contact-form" action="mailto:obsgyn@hku.hk" method="post" enctype="text/plain">
+          <div class="form-grid">
+            <label class="form-field">
+              <span>Full Name</span>
+              <input type="text" name="fullName" autocomplete="name" placeholder="Example: Chan Tai Man" required>
+            </label>
+            <label class="form-field">
+              <span>Email Address</span>
+              <input type="email" name="email" autocomplete="email" placeholder="Example: chan.ta.man@email.com" required>
+            </label>
+            <label class="form-field">
+              <span>Phone Number</span>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="Example: 9123 4567">
+            </label>
+            <label class="form-field">
+              <span>Clinic / Topic</span>
+              <select name="topic" required>
+                <option value="">Please select</option>
+                <option>Subfertility Clinic</option>
+                <option>Assisted Reproduction</option>
+                <option>Reproductive Endocrine Clinic</option>
+                <option>Menopause Clinic</option>
+                <option>General Enquiry</option>
+              </select>
+            </label>
+            <label class="form-field form-field-full">
+              <span>Message</span>
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+          </div>
+          <label class="form-consent">
+            <input type="checkbox" name="consent" required>
+            <span>I agree that my submitted information can be used to contact me regarding this enquiry.</span>
+          </label>
+          <button class="form-submit" type="submit">Send</button>
+        </form>
+      </section>
+    </div>
+  </main>
+  <script>
+    (function () {
+      var form = document.querySelector(".contact-form");
+      var feedback = document.getElementById("contact-form-feedback");
+      if (!form || !feedback) return;
+      form.addEventListener("submit", function () {
+        feedback.textContent = "Your form has been submitted";
+        feedback.hidden = false;
+        feedback.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        form.reset();
+      });
+    })();
+  </script>
+  <script src="assets/site-animations.js" defer></script>
+</body>
+</html>
+
+

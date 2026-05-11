@@ -1,0 +1,412 @@
+.team-page .main {
+  padding-top: 28px;
+}
+
+.team-page .hero-wrap {
+  background:
+    linear-gradient(to right, rgba(200, 191, 168, 0.9) 0%, rgba(200, 191, 168, 0.74) 42%, rgba(200, 191, 168, 0.2) 100%),
+    url("https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2000&q=80&sat=35") center / cover no-repeat;
+  min-height: 320px;
+  position: relative;
+  align-items: flex-start;
+  --hero-inline: max(12px, calc((100% - min(1140px, 92%)) / 2 + 8px));
+}
+
+.team-page .hero-wrap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 110px;
+  background: rgba(255, 196, 140, 0.72);
+  z-index: 0;
+}
+
+.team-page h1 {
+  font-family: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  margin-left: -72px;
+}
+
+.team-page .hero-bar-heading {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.team-page .hero-logos-panel {
+  position: absolute;
+  right: var(--hero-inline);
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(16px, 2.8vw, 32px);
+  box-sizing: border-box;
+  width: min(880px, calc(100% - var(--hero-inline) - var(--hero-inline) - clamp(140px, 20vw, 280px)));
+  max-width: none;
+  padding: clamp(44px, 7.8vw, 76px) clamp(28px, 4.2vw, 48px) clamp(32px, 5vw, 52px);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  pointer-events: none;
+}
+
+.team-page .hero-logos-panel::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  /* Right band: under department wordmark + 40th logo (see layout mark) */
+  left: clamp(108px, 18.5vw, 220px);
+  right: clamp(8px, 1.4vw, 18px);
+  top: clamp(46px, 7.6vw, 80px);
+  bottom: clamp(10px, 1.8vw, 22px);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+
+.team-page .hero-dept-logo-wrap {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: min(320px, 50vw);
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.team-page .hero-dept-logo-wrap .hero-dept-logo {
+  display: block;
+  height: clamp(40px, 5.6vw, 64px);
+  width: auto;
+  max-width: min(300px, 48vw);
+  object-fit: contain;
+  object-position: right center;
+  mix-blend-mode: normal;
+  filter: contrast(1.32) saturate(1.1) brightness(1.05) drop-shadow(0 1px 1px rgba(255, 255, 255, 0.55)) drop-shadow(0 2px 6px rgba(15, 23, 42, 0.2));
+}
+
+.team-page .hero {
+  position: relative;
+  z-index: 3;
+  padding-top: 168px;
+}
+
+.team-page .hero-anniversary-icon {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  height: clamp(70px, 11vw, 98px);
+  width: auto;
+  max-width: min(235px, 42vw);
+  object-fit: contain;
+  pointer-events: none;
+  filter: contrast(1.14) saturate(1.1) brightness(1.04) drop-shadow(0 1px 1px rgba(255, 255, 255, 0.5)) drop-shadow(0 2px 7px rgba(15, 23, 42, 0.22));
+}
+
+.intro-strip {
+  background: transparent;
+  padding: 32px 0 24px;
+  margin-bottom: 14px;
+}
+
+.team-card {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  box-shadow: none;
+  padding: 24px 24px 26px;
+}
+
+.team-card h2 {
+  margin: 0 0 24px;
+  font-size: clamp(1.85rem, 2.9vw, 2.4rem);
+  line-height: 1.12;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.team-card-clinical {
+  background: var(--bg);
+  border: 0;
+  box-shadow: none;
+  padding: 16px;
+}
+
+.team-card-clinical h2 {
+  margin: 0 0 22px;
+}
+
+.team-card-clinical[data-reveal] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.clinical-staff-list {
+  margin-top: 12px;
+}
+
+.clinical-staff-list .member-row {
+  transition: none;
+}
+
+body.intro-ready .clinical-staff-list .member-row:not(.is-visible),
+body.intro-ready .clinical-staff-list .member-row.left:not(.is-visible),
+body.intro-ready .clinical-staff-list .member-row.right:not(.is-visible),
+body.intro-ready .clinical-staff-list .member-row.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.clinical-staff-list .member-row.is-visible:hover {
+  transform: none;
+  box-shadow: var(--shadow-sm);
+  border-color: var(--line);
+}
+
+.clinical-staff-list .member-row.is-visible:hover::before {
+  opacity: 0;
+}
+
+.lab-staff-list .member-row {
+  transition: none;
+}
+
+body.intro-ready .lab-staff-list .member-row:not(.is-visible),
+body.intro-ready .lab-staff-list .member-row.left:not(.is-visible),
+body.intro-ready .lab-staff-list .member-row.right:not(.is-visible),
+body.intro-ready .lab-staff-list .member-row.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.lab-staff-list {
+  margin-top: 12px;
+}
+
+.team-card-lab {
+  background: var(--bg);
+  border: 0;
+  box-shadow: none;
+}
+
+.team-card-lab[data-reveal] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.staff-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.member-row {
+  margin: 0;
+  padding: 12px 16px;
+  min-height: 90px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--bg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    opacity 0.72s var(--ease-out),
+    transform 0.72s var(--ease-out),
+    box-shadow 0.38s var(--ease-out),
+    border-color 0.38s var(--ease-out);
+}
+
+.member-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 58%, rgba(0, 0, 0, 0.05) 100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+body.intro-ready .member-row:not(.is-visible) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.intro-ready .member-row.left:not(.is-visible) {
+  transform: translate3d(-40px, 26px, 0);
+}
+
+body.intro-ready .member-row.right:not(.is-visible) {
+  transform: translate3d(40px, 26px, 0);
+}
+
+body.intro-ready .member-row.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: var(--reveal-delay, 0ms);
+  pointer-events: auto;
+}
+
+.member-row.is-visible:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(0, 0, 0, 0.14);
+}
+
+.member-row.is-visible:hover::before {
+  opacity: 1;
+}
+
+.team-card-clinical .member-row:nth-child(1),
+.team-card-clinical .member-row:nth-child(3),
+.team-card-clinical .member-row:nth-child(5) {
+  background: var(--bg);
+  border-color: var(--line);
+}
+
+.team-card-lab .member-row:nth-child(1),
+.team-card-lab .member-row:nth-child(2),
+.team-card-lab .member-row:nth-child(5),
+.team-card-lab .member-row:nth-child(8) {
+  background: var(--bg);
+  border-color: var(--line);
+}
+
+.member-name,
+.member-role {
+  position: relative;
+  z-index: 1;
+}
+
+.member-photo {
+  width: 140px;
+  height: auto;
+  border-radius: 0;
+  object-fit: contain;
+  border: 0;
+  box-shadow: none;
+  margin-bottom: 2px;
+}
+
+.member-row-raymond {
+  gap: 8px;
+}
+
+.member-name {
+  font-size: clamp(1.2rem, 1.85vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.32;
+  color: #2b2f35;
+}
+
+.member-role {
+  font-size: clamp(1rem, 1.35vw, 1.12rem);
+  line-height: 1.5;
+  color: #4b5563;
+}
+
+.staff-list .member-row:nth-child(-n+3) {
+  background: #CFCFCF;
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.staff-list .member-row:nth-child(n+7):nth-child(-n+9) {
+  background: #CFCFCF;
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.staff-list .member-row:nth-child(-n+3) .member-name,
+.staff-list .member-row:nth-child(-n+3) .member-role,
+.staff-list .member-row:nth-child(n+7):nth-child(-n+9) .member-name,
+.staff-list .member-row:nth-child(n+7):nth-child(-n+9) .member-role {
+  color: #2b2f35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.intro-ready .member-row:not(.is-visible) {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .team-page .hero-wrap {
+    min-height: 380px;
+  }
+
+  .team-page .hero-logos-panel {
+    width: min(100%, calc(100% - var(--hero-inline) - var(--hero-inline)));
+    max-width: none;
+    padding: clamp(28px, 7.5vw, 48px) clamp(16px, 4vw, 26px) clamp(22px, 4.2vw, 36px);
+    gap: clamp(10px, 3vw, 18px);
+    justify-content: center;
+  }
+
+  .team-page .hero-logos-panel::before {
+    left: clamp(36px, 12vw, 100px);
+    right: clamp(8px, 2vw, 16px);
+    top: clamp(30px, 6.5vw, 46px);
+    bottom: clamp(12px, 2.4vw, 20px);
+    border-radius: 10px;
+  }
+
+  .team-page .hero-dept-logo-wrap {
+    max-width: min(280px, 78vw);
+  }
+
+  .team-page .hero-dept-logo-wrap .hero-dept-logo {
+    height: clamp(38px, 7vw, 56px);
+    max-width: min(260px, 76vw);
+  }
+
+  .team-page .hero-anniversary-icon {
+    height: clamp(58px, 15vw, 90px);
+    max-width: min(225px, 64vw);
+  }
+
+  .intro-strip {
+    padding: 22px 0 18px;
+  }
+
+  .team-card {
+    padding: 20px 18px 22px;
+  }
+
+  .team-card-clinical {
+    padding: 12px 0 0;
+  }
+
+  .staff-list {
+    grid-template-columns: 1fr;
+  }
+
+  body.intro-ready .member-row.left:not(.is-visible),
+  body.intro-ready .member-row.right:not(.is-visible) {
+    transform: translate3d(0, 26px, 0);
+  }
+}
