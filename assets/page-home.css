@@ -115,6 +115,10 @@
   white-space: normal;
 }
 
+.home-page .hero-mobile-break {
+  display: none;
+}
+
 .home-page .hero-anniversary-line {
   display: inline-block;
   margin-left: clamp(36px, 5vw, 88px);
@@ -334,6 +338,10 @@
     margin-left: 0;
     text-align: center;
     width: 100%;
+  }
+
+  .home-page .hero-mobile-break {
+    display: block;
   }
 
   .home-page .hero {
