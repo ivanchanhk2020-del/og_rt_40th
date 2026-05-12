@@ -4,7 +4,8 @@
 
 .team-page .hero-wrap {
   background: linear-gradient(to right, rgba(238, 233, 221, 0.26) 0%, rgba(238, 233, 221, 0.16) 42%, rgba(238, 233, 221, 0.05) 100%);
-  min-height: 250px;
+  /* Shrinks with viewport so the hero band is not oversized on phones */
+  min-height: clamp(220px, 14vw + 168px, 280px);
   position: relative;
   align-items: flex-start;
   --hero-inline: max(12px, calc((100% - min(1140px, 92%)) / 2 + 8px));
@@ -17,7 +18,7 @@
   right: 0;
   bottom: 0;
   height: 110px;
-  background: rgba(255, 196, 140, 0.72);
+  background: rgba(186, 244, 198, 0.88);
   z-index: 0;
 }
 
@@ -64,9 +65,15 @@
   top: clamp(46px, 7.6vw, 80px);
   bottom: clamp(10px, 1.8vw, 22px);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.42);
-  border: 1px solid rgba(255, 255, 255, 0.48);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  background: linear-gradient(
+    to right,
+    rgba(236, 252, 240, 0.55) 0%,
+    rgba(214, 246, 222, 0.72) 22%,
+    rgba(195, 238, 208, 0.82) 48%,
+    rgba(195, 238, 208, 0.82) 100%
+  );
+  border: 1px solid rgba(150, 210, 168, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
   pointer-events: none;
 }
 
@@ -99,7 +106,7 @@
 .team-page .hero {
   position: relative;
   z-index: 3;
-  padding-top: 128px;
+  padding-top: clamp(88px, 10vw + 72px, 128px);
 }
 
 .team-page .hero-anniversary-icon {
@@ -398,6 +405,30 @@ body.intro-ready .member-row.is-visible {
   }
 }
 
+@media (max-width: 1200px) {
+  .team-page .hero-logos-panel {
+    left: calc((100% - min(1140px, 92%)) / 2);
+    right: auto;
+    width: min(1140px, 92%);
+    max-width: none;
+    justify-content: center;
+    gap: clamp(10px, 2.5vw, 28px);
+    padding: clamp(32px, 5.8vw, 64px) clamp(18px, 3.4vw, 40px) clamp(24px, 4vw, 48px);
+  }
+
+  .team-page .hero-logos-panel::before {
+    left: clamp(14px, 3.5vw, 72px);
+    right: clamp(8px, 1.4vw, 18px);
+    top: clamp(32px, 5vw, 68px);
+    bottom: clamp(10px, 1.5vw, 22px);
+    border-radius: 10px;
+  }
+
+  .team-page .hero-dept-logo-wrap .hero-dept-logo {
+    object-position: center center;
+  }
+}
+
 @media (max-width: 900px) {
   .team-page .hero-bar-heading {
     justify-content: center;
@@ -411,19 +442,20 @@ body.intro-ready .member-row.is-visible {
   }
 
   .team-page .hero-wrap {
-    min-height: 380px;
+    min-height: clamp(200px, 36vw + 96px, 280px);
+  }
+
+  .team-page .hero {
+    padding-top: clamp(72px, 12vw + 44px, 110px);
   }
 
   .team-page .hero-logos-panel {
-    width: min(100%, calc(100% - var(--hero-inline) - var(--hero-inline)));
-    max-width: none;
     padding: clamp(28px, 7.5vw, 48px) clamp(16px, 4vw, 26px) clamp(22px, 4.2vw, 36px);
     gap: clamp(10px, 3vw, 18px);
-    justify-content: center;
   }
 
   .team-page .hero-logos-panel::before {
-    left: clamp(36px, 12vw, 100px);
+    left: clamp(14px, 3.5vw, 36px);
     right: clamp(8px, 2vw, 16px);
     top: clamp(30px, 6.5vw, 46px);
     bottom: clamp(12px, 2.4vw, 20px);

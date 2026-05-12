@@ -2,7 +2,8 @@
 
 .research-page .hero-wrap {
   background: var(--page-bg);
-  min-height: 250px;
+  /* Shrinks with viewport so the gray band is not oversized on phones */
+  min-height: clamp(220px, 14vw + 168px, 280px);
   position: relative;
   align-items: flex-start;
   --hero-inline: max(12px, calc((100% - min(1140px, 92%)) / 2 + 8px));
@@ -15,7 +16,7 @@
   right: 0;
   bottom: 0;
   height: 110px;
-  background: rgba(255, 196, 140, 0.72);
+  background: rgba(186, 244, 198, 0.88);
   z-index: 0;
 }
 
@@ -32,7 +33,7 @@
 .research-page .hero {
   position: relative;
   z-index: 3;
-  padding-top: 128px;
+  padding-top: clamp(88px, 10vw + 72px, 128px);
 }
 
 .research-page .hero-logos-panel {
@@ -67,9 +68,15 @@
   top: clamp(46px, 7.6vw, 80px);
   bottom: clamp(10px, 1.8vw, 22px);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.42);
-  border: 1px solid rgba(255, 255, 255, 0.48);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  background: linear-gradient(
+    to right,
+    rgba(236, 252, 240, 0.55) 0%,
+    rgba(214, 246, 222, 0.72) 22%,
+    rgba(195, 238, 208, 0.82) 48%,
+    rgba(195, 238, 208, 0.82) 100%
+  );
+  border: 1px solid rgba(150, 210, 168, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
   pointer-events: none;
 }
 
@@ -674,6 +681,30 @@ body.intro-ready .box.is-visible {
   }
 }
 
+@media (max-width: 1200px) {
+  .research-page .hero-logos-panel {
+    left: calc((100% - min(1140px, 92%)) / 2);
+    right: auto;
+    width: min(1140px, 92%);
+    max-width: none;
+    justify-content: center;
+    gap: clamp(10px, 2.5vw, 28px);
+    padding: clamp(32px, 5.8vw, 64px) clamp(18px, 3.4vw, 40px) clamp(24px, 4vw, 48px);
+  }
+
+  .research-page .hero-logos-panel::before {
+    left: clamp(14px, 3.5vw, 72px);
+    right: clamp(8px, 1.4vw, 18px);
+    top: clamp(32px, 5vw, 68px);
+    bottom: clamp(10px, 1.5vw, 22px);
+    border-radius: 10px;
+  }
+
+  .research-page .hero-dept-logo-wrap .hero-dept-logo {
+    object-position: center center;
+  }
+}
+
 @media (max-width: 900px) {
   .research-page .hero-bar-heading {
     justify-content: center;
@@ -687,19 +718,20 @@ body.intro-ready .box.is-visible {
   }
 
   .research-page .hero-wrap {
-    min-height: 380px;
+    min-height: clamp(200px, 36vw + 96px, 280px);
+  }
+
+  .research-page .hero {
+    padding-top: clamp(72px, 12vw + 44px, 110px);
   }
 
   .research-page .hero-logos-panel {
-    width: min(100%, calc(100% - var(--hero-inline) - var(--hero-inline)));
-    max-width: none;
     padding: clamp(28px, 7.5vw, 48px) clamp(16px, 4vw, 26px) clamp(22px, 4.2vw, 36px);
     gap: clamp(10px, 3vw, 18px);
-    justify-content: center;
   }
 
   .research-page .hero-logos-panel::before {
-    left: clamp(36px, 12vw, 100px);
+    left: clamp(14px, 3.5vw, 36px);
     right: clamp(8px, 2vw, 16px);
     top: clamp(30px, 6.5vw, 46px);
     bottom: clamp(12px, 2.4vw, 20px);
@@ -728,6 +760,9 @@ body.intro-ready .box.is-visible {
   }
 
   .box-a-photo .photo-copy {
+    flex: 0 0 auto;
+    width: 100%;
+    box-sizing: border-box;
     padding-left: 26px;
     padding-right: 20px;
     font-size: clamp(1.02rem, 3.8vw, 1.2rem);
@@ -812,12 +847,28 @@ body.intro-ready .box.is-visible {
     flex-direction: column;
   }
 
+  /*
+   * Stack caption below the image (photo-copy is position: static here).
+   * Do not let the img use height:100% of a flex-grown figure or overflow:hidden
+   * clips the figcaption below the photo.
+   */
   .box-a-photo {
-    flex: 1 1 auto;
-    min-height: 170px;
+    flex: 0 0 auto;
+    min-height: 0;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .box-a-photo img {
+    height: auto;
+    width: 100%;
+    min-height: 200px;
+    max-height: min(440px, 58vh);
+    flex-shrink: 0;
+    object-fit: cover;
   }
 }
-
 
 
 
