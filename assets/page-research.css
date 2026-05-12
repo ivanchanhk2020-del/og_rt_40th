@@ -708,7 +708,11 @@ body.intro-ready .box.is-visible {
 @media (max-width: 900px) {
   .research-page .hero-bar-heading {
     justify-content: center;
-    width: 100%;
+    width: fit-content;
+    max-width: calc(100% - 24px);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
 
   .research-page h1 {
